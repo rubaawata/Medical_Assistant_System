@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Medical_Assistant_System_DBModelStoreContainer" CdmEntityContainer="Medical_Assistant_System_Entities">
+    <EntitySetMapping Name="Allergies">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Allergy">
+        <MappingFragment StoreEntitySet="Allergy">
+          <ScalarProperty Name="Id_Allergy" ColumnName="Id_Allergy" />
+          <ScalarProperty Name="Arabic_Term" ColumnName="Arabic_Term" />
+          <ScalarProperty Name="English_Term" ColumnName="English_Term" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Available_Appointment">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Available_Appointment">
+        <MappingFragment StoreEntitySet="Available_Appointment">
+          <ScalarProperty Name="Id_Available_Appointment" ColumnName="Id_Available_Appointment" />
+          <ScalarProperty Name="Available_Time" ColumnName="Available_Time" />
+          <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Certificates">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Certificate">
+        <MappingFragment StoreEntitySet="Certificates">
+          <ScalarProperty Name="Id_Certificates" ColumnName="Id_Certificates" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date_Certificates" ColumnName="Date_Certificates" />
+          <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diseases">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Disease">
+        <MappingFragment StoreEntitySet="Diseases">
+          <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+          <ScalarProperty Name="Arabic_Term" ColumnName="Arabic_Term" />
+          <ScalarProperty Name="English_Term" ColumnName="English_Term" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diseases_Symptoms">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Diseases_Symptoms">
+        <MappingFragment StoreEntitySet="Diseases_Symptoms">
+          <ScalarProperty Name="Id_Diseases_Symptoms" ColumnName="Id_Diseases_Symptoms" />
+          <ScalarProperty Name="Id_Symptoms" ColumnName="Id_Symptoms" />
+          <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+          <ScalarProperty Name="Syndicate_num" ColumnName="Syndicate_num" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Clinic_num" ColumnName="Clinic_num" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emergencies">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Emergency">
+        <MappingFragment StoreEntitySet="Emergency">
+          <ScalarProperty Name="Id_Emergency" ColumnName="Id_Emergency" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="First_Aid">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.First_Aid">
+        <MappingFragment StoreEntitySet="First_Aid">
+          <ScalarProperty Name="Id_First_Aid" ColumnName="Id_First_Aid" />
+          <ScalarProperty Name="Explanation_First_Aid" ColumnName="Explanation_First_Aid" />
+          <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicines">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Medicine">
+        <MappingFragment StoreEntitySet="Medicine">
+          <ScalarProperty Name="Id_Medicine" ColumnName="Id_Medicine" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="dose" ColumnName="dose" />
+          <ScalarProperty Name="Id_Prescription" ColumnName="Id_Prescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_Personal_Infomation">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.P_Personal_Infomation">
+        <MappingFragment StoreEntitySet="P_Personal_Infomation">
+          <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="SocialStatus" ColumnName="SocialStatus" />
+          <ScalarProperty Name="Length_p" ColumnName="Length_p" />
+          <ScalarProperty Name="weight_p" ColumnName="weight_p" />
+          <ScalarProperty Name="bloodType" ColumnName="bloodType" />
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patient_Account">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Patient_Account">
+        <MappingFragment StoreEntitySet="Patient_Account">
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patient_Allergy">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Patient_Allergy">
+        <MappingFragment StoreEntitySet="Patient_Allergy">
+          <ScalarProperty Name="Id_Patient_Allergy" ColumnName="Id_Patient_Allergy" />
+          <ScalarProperty Name="Id_Allergy" ColumnName="Id_Allergy" />
+          <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prescriptions">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Prescription">
+        <MappingFragment StoreEntitySet="Prescription">
+          <ScalarProperty Name="Id_Prescription" ColumnName="Id_Prescription" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Id_Available_Appointment" ColumnName="Id_Available_Appointment" />
+          <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prescription_Diseases">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Prescription_Diseases">
+        <MappingFragment StoreEntitySet="Prescription_Diseases">
+          <ScalarProperty Name="Id_Prescription_Diseases" ColumnName="Id_Prescription_Diseases" />
+          <ScalarProperty Name="Id_Prescription" ColumnName="Id_Prescription" />
+          <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Symptoms">
+      <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Symptom">
+        <MappingFragment StoreEntitySet="Symptoms">
+          <ScalarProperty Name="Id_Symptoms" ColumnName="Id_Symptoms" />
+          <ScalarProperty Name="Arabic_Term" ColumnName="Arabic_Term" />
+          <ScalarProperty Name="English_Term" ColumnName="English_Term" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aca5f2fd835041aa9e951e7c07f779d6" Name="Diagram1">
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Allergy" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Available_Appointment" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Certificate" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Disease" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Diseases_Symptoms" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Doctor" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Emergency" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.First_Aid" Width="1.5" PointX="7.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Medicine" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.P_Personal_Infomation" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Patient_Account" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Patient_Allergy" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Prescription" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Prescription_Diseases" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_Assistant_System_DBModel.Symptom" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Patient_Allergy_Allergy" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Available_Appointment_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Prescription_Available_Appointment" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Certificates_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Diseases_Symptoms_Diseases" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_First_Aid_Diseases" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Prescription_Diseases_Diseases" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Diseases_Symptoms_Symptoms" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Emergency_P_Personal_Infomation" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Medicine_Prescription" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Patient_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Patient_Allergy_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Prescription_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="Medical_Assistant_System_DBModel.FK_Prescription_Diseases_Prescription" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,969 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Medical_Assistant_System_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Allergy">
+          <Key>
+            <PropertyRef Name="Id_Allergy" />
+          </Key>
+          <Property Name="Id_Allergy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Arabic_Term" Type="varchar(max)" Nullable="false" />
+          <Property Name="English_Term" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Available_Appointment">
+          <Key>
+            <PropertyRef Name="Id_Available_Appointment" />
+          </Key>
+          <Property Name="Id_Available_Appointment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Available_Time" Type="date" Nullable="false" />
+          <Property Name="Id_Doctor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Certificates">
+          <Key>
+            <PropertyRef Name="Id_Certificates" />
+          </Key>
+          <Property Name="Id_Certificates" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_Certificates" Type="date" Nullable="false" />
+          <Property Name="Id_Doctor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Diseases">
+          <Key>
+            <PropertyRef Name="Id_Diseases" />
+          </Key>
+          <Property Name="Id_Diseases" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Arabic_Term" Type="varchar(max)" Nullable="false" />
+          <Property Name="English_Term" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Diseases_Symptoms">
+          <Key>
+            <PropertyRef Name="Id_Diseases_Symptoms" />
+          </Key>
+          <Property Name="Id_Diseases_Symptoms" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Symptoms" Type="int" Nullable="false" />
+          <Property Name="Id_Diseases" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id_Doctor" />
+          </Key>
+          <Property Name="Id_Doctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Syndicate_num" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="Clinic_num" Type="varchar" MaxLength="10" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="10" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emergency">
+          <Key>
+            <PropertyRef Name="Id_Emergency" />
+          </Key>
+          <Property Name="Id_Emergency" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="70" />
+          <Property Name="Id_Patient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="First_Aid">
+          <Key>
+            <PropertyRef Name="Id_First_Aid" />
+          </Key>
+          <Property Name="Id_First_Aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Explanation_First_Aid" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id_Diseases" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id_Medicine" />
+          </Key>
+          <Property Name="Id_Medicine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="dose" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id_Prescription" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="P_Personal_Infomation">
+          <Key>
+            <PropertyRef Name="Id_Patient" />
+          </Key>
+          <Property Name="Id_Patient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="SocialStatus" Type="char" MaxLength="1" />
+          <Property Name="Length_p" Type="int" />
+          <Property Name="weight_p" Type="int" />
+          <Property Name="bloodType" Type="varchar" MaxLength="2" />
+          <Property Name="Id_Account" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient_Account">
+          <Key>
+            <PropertyRef Name="Id_Account" />
+          </Key>
+          <Property Name="Id_Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient_Allergy">
+          <Key>
+            <PropertyRef Name="Id_Patient_Allergy" />
+          </Key>
+          <Property Name="Id_Patient_Allergy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Allergy" Type="int" Nullable="false" />
+          <Property Name="Id_Patient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prescription">
+          <Key>
+            <PropertyRef Name="Id_Prescription" />
+          </Key>
+          <Property Name="Id_Prescription" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Available_Appointment" Type="int" />
+          <Property Name="Id_Patient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prescription_Diseases">
+          <Key>
+            <PropertyRef Name="Id_Prescription_Diseases" />
+          </Key>
+          <Property Name="Id_Prescription_Diseases" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Prescription" Type="int" Nullable="false" />
+          <Property Name="Id_Diseases" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Symptoms">
+          <Key>
+            <PropertyRef Name="Id_Symptoms" />
+          </Key>
+          <Property Name="Id_Symptoms" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Arabic_Term" Type="varchar(max)" Nullable="false" />
+          <Property Name="English_Term" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Available_Appointment_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Available_Appointment" Type="Self.Available_Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_Doctor" />
+            </Principal>
+            <Dependent Role="Available_Appointment">
+              <PropertyRef Name="Id_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Certificates_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Certificates" Type="Self.Certificates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_Doctor" />
+            </Principal>
+            <Dependent Role="Certificates">
+              <PropertyRef Name="Id_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diseases_Symptoms_Diseases">
+          <End Role="Diseases" Type="Self.Diseases" Multiplicity="1" />
+          <End Role="Diseases_Symptoms" Type="Self.Diseases_Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Principal>
+            <Dependent Role="Diseases_Symptoms">
+              <PropertyRef Name="Id_Diseases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diseases_Symptoms_Symptoms">
+          <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="1" />
+          <End Role="Diseases_Symptoms" Type="Self.Diseases_Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symptoms">
+              <PropertyRef Name="Id_Symptoms" />
+            </Principal>
+            <Dependent Role="Diseases_Symptoms">
+              <PropertyRef Name="Id_Symptoms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emergency_P_Personal_Infomation">
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="1" />
+          <End Role="Emergency" Type="Self.Emergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Patient" />
+            </Principal>
+            <Dependent Role="Emergency">
+              <PropertyRef Name="Id_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_First_Aid_Diseases">
+          <End Role="Diseases" Type="Self.Diseases" Multiplicity="1" />
+          <End Role="First_Aid" Type="Self.First_Aid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Principal>
+            <Dependent Role="First_Aid">
+              <PropertyRef Name="Id_Diseases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medicine_Prescription">
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prescription">
+              <PropertyRef Name="Id_Prescription" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="Id_Prescription" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Account">
+          <End Role="Patient_Account" Type="Self.Patient_Account" Multiplicity="1" />
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Allergy_Allergy">
+          <End Role="Allergy" Type="Self.Allergy" Multiplicity="1" />
+          <End Role="Patient_Allergy" Type="Self.Patient_Allergy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Allergy">
+              <PropertyRef Name="Id_Allergy" />
+            </Principal>
+            <Dependent Role="Patient_Allergy">
+              <PropertyRef Name="Id_Allergy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Allergy_Patient">
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="1" />
+          <End Role="Patient_Allergy" Type="Self.Patient_Allergy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Patient" />
+            </Principal>
+            <Dependent Role="Patient_Allergy">
+              <PropertyRef Name="Id_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Available_Appointment">
+          <End Role="Available_Appointment" Type="Self.Available_Appointment" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Available_Appointment">
+              <PropertyRef Name="Id_Available_Appointment" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="Id_Available_Appointment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Diseases_Diseases">
+          <End Role="Diseases" Type="Self.Diseases" Multiplicity="1" />
+          <End Role="Prescription_Diseases" Type="Self.Prescription_Diseases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Principal>
+            <Dependent Role="Prescription_Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Diseases_Prescription">
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="1" />
+          <End Role="Prescription_Diseases" Type="Self.Prescription_Diseases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prescription">
+              <PropertyRef Name="Id_Prescription" />
+            </Principal>
+            <Dependent Role="Prescription_Diseases">
+              <PropertyRef Name="Id_Prescription" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Patient">
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Patient" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="Id_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Medical_Assistant_System_DBModelStoreContainer">
+          <EntitySet Name="Allergy" EntityType="Self.Allergy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Available_Appointment" EntityType="Self.Available_Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certificates" EntityType="Self.Certificates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diseases" EntityType="Self.Diseases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diseases_Symptoms" EntityType="Self.Diseases_Symptoms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emergency" EntityType="Self.Emergency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="First_Aid" EntityType="Self.First_Aid" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Personal_Infomation" EntityType="Self.P_Personal_Infomation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Account" EntityType="Self.Patient_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Allergy" EntityType="Self.Patient_Allergy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescription_Diseases" EntityType="Self.Prescription_Diseases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Available_Appointment_Doctor" Association="Self.FK_Available_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Available_Appointment" EntitySet="Available_Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Certificates_Doctor" Association="Self.FK_Certificates_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Certificates" EntitySet="Certificates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diseases_Symptoms_Diseases" Association="Self.FK_Diseases_Symptoms_Diseases">
+            <End Role="Diseases" EntitySet="Diseases" />
+            <End Role="Diseases_Symptoms" EntitySet="Diseases_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diseases_Symptoms_Symptoms" Association="Self.FK_Diseases_Symptoms_Symptoms">
+            <End Role="Symptoms" EntitySet="Symptoms" />
+            <End Role="Diseases_Symptoms" EntitySet="Diseases_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emergency_P_Personal_Infomation" Association="Self.FK_Emergency_P_Personal_Infomation">
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+            <End Role="Emergency" EntitySet="Emergency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_First_Aid_Diseases" Association="Self.FK_First_Aid_Diseases">
+            <End Role="Diseases" EntitySet="Diseases" />
+            <End Role="First_Aid" EntitySet="First_Aid" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medicine_Prescription" Association="Self.FK_Medicine_Prescription">
+            <End Role="Prescription" EntitySet="Prescription" />
+            <End Role="Medicine" EntitySet="Medicine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Account" Association="Self.FK_Patient_Account">
+            <End Role="Patient_Account" EntitySet="Patient_Account" />
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Allergy_Allergy" Association="Self.FK_Patient_Allergy_Allergy">
+            <End Role="Allergy" EntitySet="Allergy" />
+            <End Role="Patient_Allergy" EntitySet="Patient_Allergy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Allergy_Patient" Association="Self.FK_Patient_Allergy_Patient">
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+            <End Role="Patient_Allergy" EntitySet="Patient_Allergy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Available_Appointment" Association="Self.FK_Prescription_Available_Appointment">
+            <End Role="Available_Appointment" EntitySet="Available_Appointment" />
+            <End Role="Prescription" EntitySet="Prescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Diseases_Diseases" Association="Self.FK_Prescription_Diseases_Diseases">
+            <End Role="Diseases" EntitySet="Diseases" />
+            <End Role="Prescription_Diseases" EntitySet="Prescription_Diseases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Diseases_Prescription" Association="Self.FK_Prescription_Diseases_Prescription">
+            <End Role="Prescription" EntitySet="Prescription" />
+            <End Role="Prescription_Diseases" EntitySet="Prescription_Diseases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Patient" Association="Self.FK_Prescription_Patient">
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+            <End Role="Prescription" EntitySet="Prescription" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Medical_Assistant_System_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Allergy">
+          <Key>
+            <PropertyRef Name="Id_Allergy" />
+          </Key>
+          <Property Name="Id_Allergy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Arabic_Term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="English_Term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Patient_Allergy" Relationship="Self.FK_Patient_Allergy_Allergy" FromRole="Allergy" ToRole="Patient_Allergy" />
+        </EntityType>
+        <EntityType Name="Available_Appointment">
+          <Key>
+            <PropertyRef Name="Id_Available_Appointment" />
+          </Key>
+          <Property Name="Id_Available_Appointment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Available_Time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_Doctor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Available_Appointment_Doctor" FromRole="Available_Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Available_Appointment" FromRole="Available_Appointment" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Certificate">
+          <Key>
+            <PropertyRef Name="Id_Certificates" />
+          </Key>
+          <Property Name="Id_Certificates" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_Certificates" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_Doctor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Certificates_Doctor" FromRole="Certificates" ToRole="Doctor" />
+        </EntityType>
+        <EntityType Name="Disease">
+          <Key>
+            <PropertyRef Name="Id_Diseases" />
+          </Key>
+          <Property Name="Id_Diseases" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Arabic_Term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="English_Term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Diseases_Symptoms" Relationship="Self.FK_Diseases_Symptoms_Diseases" FromRole="Diseases" ToRole="Diseases_Symptoms" />
+          <NavigationProperty Name="First_Aid" Relationship="Self.FK_First_Aid_Diseases" FromRole="Diseases" ToRole="First_Aid" />
+          <NavigationProperty Name="Prescription_Diseases" Relationship="Self.FK_Prescription_Diseases_Diseases" FromRole="Diseases" ToRole="Prescription_Diseases" />
+        </EntityType>
+        <EntityType Name="Diseases_Symptoms">
+          <Key>
+            <PropertyRef Name="Id_Diseases_Symptoms" />
+          </Key>
+          <Property Name="Id_Diseases_Symptoms" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Symptoms" Type="Int32" Nullable="false" />
+          <Property Name="Id_Diseases" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Disease" Relationship="Self.FK_Diseases_Symptoms_Diseases" FromRole="Diseases_Symptoms" ToRole="Diseases" />
+          <NavigationProperty Name="Symptom" Relationship="Self.FK_Diseases_Symptoms_Symptoms" FromRole="Diseases_Symptoms" ToRole="Symptoms" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id_Doctor" />
+          </Key>
+          <Property Name="Id_Doctor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Syndicate_num" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clinic_num" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Available_Appointment" Relationship="Self.FK_Available_Appointment_Doctor" FromRole="Doctor" ToRole="Available_Appointment" />
+          <NavigationProperty Name="Certificates" Relationship="Self.FK_Certificates_Doctor" FromRole="Doctor" ToRole="Certificates" />
+        </EntityType>
+        <EntityType Name="Emergency">
+          <Key>
+            <PropertyRef Name="Id_Emergency" />
+          </Key>
+          <Property Name="Id_Emergency" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Patient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="P_Personal_Infomation" Relationship="Self.FK_Emergency_P_Personal_Infomation" FromRole="Emergency" ToRole="P_Personal_Infomation" />
+        </EntityType>
+        <EntityType Name="First_Aid">
+          <Key>
+            <PropertyRef Name="Id_First_Aid" />
+          </Key>
+          <Property Name="Id_First_Aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Explanation_First_Aid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Diseases" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Disease" Relationship="Self.FK_First_Aid_Diseases" FromRole="First_Aid" ToRole="Diseases" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id_Medicine" />
+          </Key>
+          <Property Name="Id_Medicine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dose" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Prescription" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prescription" Relationship="Self.FK_Medicine_Prescription" FromRole="Medicine" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="P_Personal_Infomation">
+          <Key>
+            <PropertyRef Name="Id_Patient" />
+          </Key>
+          <Property Name="Id_Patient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SocialStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Length_p" Type="Int32" />
+          <Property Name="weight_p" Type="Int32" />
+          <Property Name="bloodType" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Account" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Emergencies" Relationship="Self.FK_Emergency_P_Personal_Infomation" FromRole="P_Personal_Infomation" ToRole="Emergency" />
+          <NavigationProperty Name="Patient_Account" Relationship="Self.FK_Patient_Account" FromRole="P_Personal_Infomation" ToRole="Patient_Account" />
+          <NavigationProperty Name="Patient_Allergy" Relationship="Self.FK_Patient_Allergy_Patient" FromRole="P_Personal_Infomation" ToRole="Patient_Allergy" />
+          <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Patient" FromRole="P_Personal_Infomation" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Patient_Account">
+          <Key>
+            <PropertyRef Name="Id_Account" />
+          </Key>
+          <Property Name="Id_Account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="P_Personal_Infomation" Relationship="Self.FK_Patient_Account" FromRole="Patient_Account" ToRole="P_Personal_Infomation" />
+        </EntityType>
+        <EntityType Name="Patient_Allergy">
+          <Key>
+            <PropertyRef Name="Id_Patient_Allergy" />
+          </Key>
+          <Property Name="Id_Patient_Allergy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Allergy" Type="Int32" Nullable="false" />
+          <Property Name="Id_Patient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Allergy" Relationship="Self.FK_Patient_Allergy_Allergy" FromRole="Patient_Allergy" ToRole="Allergy" />
+          <NavigationProperty Name="P_Personal_Infomation" Relationship="Self.FK_Patient_Allergy_Patient" FromRole="Patient_Allergy" ToRole="P_Personal_Infomation" />
+        </EntityType>
+        <EntityType Name="Prescription">
+          <Key>
+            <PropertyRef Name="Id_Prescription" />
+          </Key>
+          <Property Name="Id_Prescription" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Available_Appointment" Type="Int32" />
+          <Property Name="Id_Patient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Available_Appointment" Relationship="Self.FK_Prescription_Available_Appointment" FromRole="Prescription" ToRole="Available_Appointment" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK_Medicine_Prescription" FromRole="Prescription" ToRole="Medicine" />
+          <NavigationProperty Name="P_Personal_Infomation" Relationship="Self.FK_Prescription_Patient" FromRole="Prescription" ToRole="P_Personal_Infomation" />
+          <NavigationProperty Name="Prescription_Diseases" Relationship="Self.FK_Prescription_Diseases_Prescription" FromRole="Prescription" ToRole="Prescription_Diseases" />
+        </EntityType>
+        <EntityType Name="Prescription_Diseases">
+          <Key>
+            <PropertyRef Name="Id_Prescription_Diseases" />
+          </Key>
+          <Property Name="Id_Prescription_Diseases" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Prescription" Type="Int32" Nullable="false" />
+          <Property Name="Id_Diseases" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Disease" Relationship="Self.FK_Prescription_Diseases_Diseases" FromRole="Prescription_Diseases" ToRole="Diseases" />
+          <NavigationProperty Name="Prescription" Relationship="Self.FK_Prescription_Diseases_Prescription" FromRole="Prescription_Diseases" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Symptom">
+          <Key>
+            <PropertyRef Name="Id_Symptoms" />
+          </Key>
+          <Property Name="Id_Symptoms" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Arabic_Term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="English_Term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Diseases_Symptoms" Relationship="Self.FK_Diseases_Symptoms_Symptoms" FromRole="Symptoms" ToRole="Diseases_Symptoms" />
+        </EntityType>
+        <Association Name="FK_Patient_Allergy_Allergy">
+          <End Role="Allergy" Type="Self.Allergy" Multiplicity="1" />
+          <End Role="Patient_Allergy" Type="Self.Patient_Allergy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Allergy">
+              <PropertyRef Name="Id_Allergy" />
+            </Principal>
+            <Dependent Role="Patient_Allergy">
+              <PropertyRef Name="Id_Allergy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Available_Appointment_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Available_Appointment" Type="Self.Available_Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_Doctor" />
+            </Principal>
+            <Dependent Role="Available_Appointment">
+              <PropertyRef Name="Id_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Available_Appointment">
+          <End Role="Available_Appointment" Type="Self.Available_Appointment" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Available_Appointment">
+              <PropertyRef Name="Id_Available_Appointment" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="Id_Available_Appointment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Certificates_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Certificates" Type="Self.Certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id_Doctor" />
+            </Principal>
+            <Dependent Role="Certificates">
+              <PropertyRef Name="Id_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diseases_Symptoms_Diseases">
+          <End Role="Diseases" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Diseases_Symptoms" Type="Self.Diseases_Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Principal>
+            <Dependent Role="Diseases_Symptoms">
+              <PropertyRef Name="Id_Diseases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_First_Aid_Diseases">
+          <End Role="Diseases" Type="Self.Disease" Multiplicity="1" />
+          <End Role="First_Aid" Type="Self.First_Aid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Principal>
+            <Dependent Role="First_Aid">
+              <PropertyRef Name="Id_Diseases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Diseases_Diseases">
+          <End Role="Diseases" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Prescription_Diseases" Type="Self.Prescription_Diseases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Principal>
+            <Dependent Role="Prescription_Diseases">
+              <PropertyRef Name="Id_Diseases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diseases_Symptoms_Symptoms">
+          <End Role="Symptoms" Type="Self.Symptom" Multiplicity="1" />
+          <End Role="Diseases_Symptoms" Type="Self.Diseases_Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Symptoms">
+              <PropertyRef Name="Id_Symptoms" />
+            </Principal>
+            <Dependent Role="Diseases_Symptoms">
+              <PropertyRef Name="Id_Symptoms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emergency_P_Personal_Infomation">
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="1" />
+          <End Role="Emergency" Type="Self.Emergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Patient" />
+            </Principal>
+            <Dependent Role="Emergency">
+              <PropertyRef Name="Id_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medicine_Prescription">
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prescription">
+              <PropertyRef Name="Id_Prescription" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="Id_Prescription" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Account">
+          <End Role="Patient_Account" Type="Self.Patient_Account" Multiplicity="1" />
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Account">
+              <PropertyRef Name="Id_Account" />
+            </Principal>
+            <Dependent Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Allergy_Patient">
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="1" />
+          <End Role="Patient_Allergy" Type="Self.Patient_Allergy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Patient" />
+            </Principal>
+            <Dependent Role="Patient_Allergy">
+              <PropertyRef Name="Id_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Patient">
+          <End Role="P_Personal_Infomation" Type="Self.P_Personal_Infomation" Multiplicity="1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personal_Infomation">
+              <PropertyRef Name="Id_Patient" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="Id_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Diseases_Prescription">
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="1" />
+          <End Role="Prescription_Diseases" Type="Self.Prescription_Diseases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prescription">
+              <PropertyRef Name="Id_Prescription" />
+            </Principal>
+            <Dependent Role="Prescription_Diseases">
+              <PropertyRef Name="Id_Prescription" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Medical_Assistant_System_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Allergies" EntityType="Self.Allergy" />
+          <EntitySet Name="Available_Appointment" EntityType="Self.Available_Appointment" />
+          <EntitySet Name="Certificates" EntityType="Self.Certificate" />
+          <EntitySet Name="Diseases" EntityType="Self.Disease" />
+          <EntitySet Name="Diseases_Symptoms" EntityType="Self.Diseases_Symptoms" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Emergencies" EntityType="Self.Emergency" />
+          <EntitySet Name="First_Aid" EntityType="Self.First_Aid" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <EntitySet Name="P_Personal_Infomation" EntityType="Self.P_Personal_Infomation" />
+          <EntitySet Name="Patient_Account" EntityType="Self.Patient_Account" />
+          <EntitySet Name="Patient_Allergy" EntityType="Self.Patient_Allergy" />
+          <EntitySet Name="Prescriptions" EntityType="Self.Prescription" />
+          <EntitySet Name="Prescription_Diseases" EntityType="Self.Prescription_Diseases" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptom" />
+          <AssociationSet Name="FK_Patient_Allergy_Allergy" Association="Self.FK_Patient_Allergy_Allergy">
+            <End Role="Allergy" EntitySet="Allergies" />
+            <End Role="Patient_Allergy" EntitySet="Patient_Allergy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Available_Appointment_Doctor" Association="Self.FK_Available_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Available_Appointment" EntitySet="Available_Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Available_Appointment" Association="Self.FK_Prescription_Available_Appointment">
+            <End Role="Available_Appointment" EntitySet="Available_Appointment" />
+            <End Role="Prescription" EntitySet="Prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Certificates_Doctor" Association="Self.FK_Certificates_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Certificates" EntitySet="Certificates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diseases_Symptoms_Diseases" Association="Self.FK_Diseases_Symptoms_Diseases">
+            <End Role="Diseases" EntitySet="Diseases" />
+            <End Role="Diseases_Symptoms" EntitySet="Diseases_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_First_Aid_Diseases" Association="Self.FK_First_Aid_Diseases">
+            <End Role="Diseases" EntitySet="Diseases" />
+            <End Role="First_Aid" EntitySet="First_Aid" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Diseases_Diseases" Association="Self.FK_Prescription_Diseases_Diseases">
+            <End Role="Diseases" EntitySet="Diseases" />
+            <End Role="Prescription_Diseases" EntitySet="Prescription_Diseases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diseases_Symptoms_Symptoms" Association="Self.FK_Diseases_Symptoms_Symptoms">
+            <End Role="Symptoms" EntitySet="Symptoms" />
+            <End Role="Diseases_Symptoms" EntitySet="Diseases_Symptoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emergency_P_Personal_Infomation" Association="Self.FK_Emergency_P_Personal_Infomation">
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+            <End Role="Emergency" EntitySet="Emergencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medicine_Prescription" Association="Self.FK_Medicine_Prescription">
+            <End Role="Prescription" EntitySet="Prescriptions" />
+            <End Role="Medicine" EntitySet="Medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Account" Association="Self.FK_Patient_Account">
+            <End Role="Patient_Account" EntitySet="Patient_Account" />
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Allergy_Patient" Association="Self.FK_Patient_Allergy_Patient">
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+            <End Role="Patient_Allergy" EntitySet="Patient_Allergy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Patient" Association="Self.FK_Prescription_Patient">
+            <End Role="P_Personal_Infomation" EntitySet="P_Personal_Infomation" />
+            <End Role="Prescription" EntitySet="Prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Diseases_Prescription" Association="Self.FK_Prescription_Diseases_Prescription">
+            <End Role="Prescription" EntitySet="Prescriptions" />
+            <End Role="Prescription_Diseases" EntitySet="Prescription_Diseases" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Medical_Assistant_System_DBModelStoreContainer" CdmEntityContainer="Medical_Assistant_System_Entities">
+          <EntitySetMapping Name="Allergies">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Allergy">
+              <MappingFragment StoreEntitySet="Allergy">
+                <ScalarProperty Name="Id_Allergy" ColumnName="Id_Allergy" />
+                <ScalarProperty Name="Arabic_Term" ColumnName="Arabic_Term" />
+                <ScalarProperty Name="English_Term" ColumnName="English_Term" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Available_Appointment">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Available_Appointment">
+              <MappingFragment StoreEntitySet="Available_Appointment">
+                <ScalarProperty Name="Id_Available_Appointment" ColumnName="Id_Available_Appointment" />
+                <ScalarProperty Name="Available_Time" ColumnName="Available_Time" />
+                <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certificates">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Certificate">
+              <MappingFragment StoreEntitySet="Certificates">
+                <ScalarProperty Name="Id_Certificates" ColumnName="Id_Certificates" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date_Certificates" ColumnName="Date_Certificates" />
+                <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diseases">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Disease">
+              <MappingFragment StoreEntitySet="Diseases">
+                <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+                <ScalarProperty Name="Arabic_Term" ColumnName="Arabic_Term" />
+                <ScalarProperty Name="English_Term" ColumnName="English_Term" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diseases_Symptoms">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Diseases_Symptoms">
+              <MappingFragment StoreEntitySet="Diseases_Symptoms">
+                <ScalarProperty Name="Id_Diseases_Symptoms" ColumnName="Id_Diseases_Symptoms" />
+                <ScalarProperty Name="Id_Symptoms" ColumnName="Id_Symptoms" />
+                <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Id_Doctor" ColumnName="Id_Doctor" />
+                <ScalarProperty Name="Syndicate_num" ColumnName="Syndicate_num" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Clinic_num" ColumnName="Clinic_num" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emergencies">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Emergency">
+              <MappingFragment StoreEntitySet="Emergency">
+                <ScalarProperty Name="Id_Emergency" ColumnName="Id_Emergency" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="First_Aid">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.First_Aid">
+              <MappingFragment StoreEntitySet="First_Aid">
+                <ScalarProperty Name="Id_First_Aid" ColumnName="Id_First_Aid" />
+                <ScalarProperty Name="Explanation_First_Aid" ColumnName="Explanation_First_Aid" />
+                <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Medicine">
+              <MappingFragment StoreEntitySet="Medicine">
+                <ScalarProperty Name="Id_Medicine" ColumnName="Id_Medicine" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="dose" ColumnName="dose" />
+                <ScalarProperty Name="Id_Prescription" ColumnName="Id_Prescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Personal_Infomation">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.P_Personal_Infomation">
+              <MappingFragment StoreEntitySet="P_Personal_Infomation">
+                <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="SocialStatus" ColumnName="SocialStatus" />
+                <ScalarProperty Name="Length_p" ColumnName="Length_p" />
+                <ScalarProperty Name="weight_p" ColumnName="weight_p" />
+                <ScalarProperty Name="bloodType" ColumnName="bloodType" />
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Account">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Patient_Account">
+              <MappingFragment StoreEntitySet="Patient_Account">
+                <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Allergy">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Patient_Allergy">
+              <MappingFragment StoreEntitySet="Patient_Allergy">
+                <ScalarProperty Name="Id_Patient_Allergy" ColumnName="Id_Patient_Allergy" />
+                <ScalarProperty Name="Id_Allergy" ColumnName="Id_Allergy" />
+                <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescriptions">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Prescription">
+              <MappingFragment StoreEntitySet="Prescription">
+                <ScalarProperty Name="Id_Prescription" ColumnName="Id_Prescription" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Id_Available_Appointment" ColumnName="Id_Available_Appointment" />
+                <ScalarProperty Name="Id_Patient" ColumnName="Id_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescription_Diseases">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Prescription_Diseases">
+              <MappingFragment StoreEntitySet="Prescription_Diseases">
+                <ScalarProperty Name="Id_Prescription_Diseases" ColumnName="Id_Prescription_Diseases" />
+                <ScalarProperty Name="Id_Prescription" ColumnName="Id_Prescription" />
+                <ScalarProperty Name="Id_Diseases" ColumnName="Id_Diseases" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Symptoms">
+            <EntityTypeMapping TypeName="Medical_Assistant_System_DBModel.Symptom">
+              <MappingFragment StoreEntitySet="Symptoms">
+                <ScalarProperty Name="Id_Symptoms" ColumnName="Id_Symptoms" />
+                <ScalarProperty Name="Arabic_Term" ColumnName="Arabic_Term" />
+                <ScalarProperty Name="English_Term" ColumnName="English_Term" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
